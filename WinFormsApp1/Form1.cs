@@ -75,13 +75,8 @@ namespace WinFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-
             _hookID = SetHook(_proc);
-            //Application.Run();
 
-            //UnhookWindowsHookEx(_hookID);
             notifyIcon1.Text = $"Current hotkey: {_key}\nClick icon to change hotkey...";
             notifyIcon1.BalloonTipText = $"Current hotkey: {_key}\nClick icon to change hotkey...";
 
@@ -112,17 +107,6 @@ namespace WinFormsApp1
             {
                 return SetWindowsHookEx(WH_KEYBOARD_LL, proc, GetModuleHandle(curModule.ModuleName), 0);
             }
-        }
-
-        private static void ToggleCapsLock()
-        {
-            const int KEYEVENTF_EXTENDEDKEY = 0x1;
-            const int KEYEVENTF_KEYUP = 0x2;
-
-            UnhookWindowsHookEx(_hookID);
-            keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY, (UIntPtr)0);
-            keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, (UIntPtr)0);
-            _hookID = SetHook(_proc);
         }
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
