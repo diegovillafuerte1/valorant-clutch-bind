@@ -60,7 +60,7 @@ namespace WinFormsApp1
 
         static private void HandleClutchButton()
         {
-            var muteTarget = "Discord";
+            var muteTarget = "RiotClientServices";
             foreach (AudioSession session in AudioUtilities.GetAllSessions())
             {
                 if (!string.IsNullOrEmpty(session?.Process?.ProcessName) && session.Process.ProcessName.ToLowerInvariant() == muteTarget.ToLowerInvariant())
