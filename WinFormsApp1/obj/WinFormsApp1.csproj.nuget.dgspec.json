@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Austin\\source\\repos\\new\\SetAppVolume\\WinFormsApp1\\WinFormsApp1.csproj": {}
+    "C:\\Users\\Austin\\source\\repos\\diegovillafuerte1\\valorant-clutch-bind\\WinFormsApp1\\WinFormsApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Austin\\source\\repos\\new\\SetAppVolume\\WinFormsApp1\\WinFormsApp1.csproj": {
+    "C:\\Users\\Austin\\source\\repos\\diegovillafuerte1\\valorant-clutch-bind\\WinFormsApp1\\WinFormsApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Austin\\source\\repos\\new\\SetAppVolume\\WinFormsApp1\\WinFormsApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Austin\\source\\repos\\diegovillafuerte1\\valorant-clutch-bind\\WinFormsApp1\\WinFormsApp1.csproj",
         "projectName": "WinFormsApp1",
-        "projectPath": "C:\\Users\\Austin\\source\\repos\\new\\SetAppVolume\\WinFormsApp1\\WinFormsApp1.csproj",
+        "projectPath": "C:\\Users\\Austin\\source\\repos\\diegovillafuerte1\\valorant-clutch-bind\\WinFormsApp1\\WinFormsApp1.csproj",
         "packagesPath": "C:\\Users\\Austin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Austin\\source\\repos\\new\\SetAppVolume\\WinFormsApp1\\obj\\",
+        "outputPath": "C:\\Users\\Austin\\source\\repos\\diegovillafuerte1\\valorant-clutch-bind\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1-windows",
+          "dependencies": {
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using WinFormsApp1.Utils;
+using NAudio;
 
 namespace WinFormsApp1
 {
@@ -20,6 +21,7 @@ namespace WinFormsApp1
         #region shitThatMatters
         static Form1 thisButStatic;
         static public bool listening = false;
+        static public bool isMuted = false;
         static private Keys _key = Keys.OemPeriod;
         public Form1()
         {
@@ -39,6 +41,7 @@ namespace WinFormsApp1
             if (listening)
             {
                 SetHotkey(key);
+                listening = false;
             }
             else if (key == _key)
             {
@@ -48,7 +51,7 @@ namespace WinFormsApp1
 
         static private void HandleClutchButton()
         {
-            var muteTarget = "RiotClientServices";
+            var muteTarget = "Discord";
             foreach (AudioSession session in AudioUtilities.GetAllSessions())
             {
                 if (!string.IsNullOrEmpty(session?.Process?.ProcessName) && session.Process.ProcessName.ToLowerInvariant() == muteTarget.ToLowerInvariant())
@@ -58,7 +61,16 @@ namespace WinFormsApp1
                     var muted = AudioUtilities.GetApplicationMute(session.ProcessId);
                     if (muted.HasValue)
                     {
+                        if (muted.Value)
+                        {
+                            AudioPlayer.PlayUnmuteSound();
+                        }
+                        else
+                        {
+                            AudioPlayer.PlayMuteSound();
+                        }
                         AudioUtilities.SetApplicationMute(session.ProcessId, !muted.Value);
+                        isMuted = !muted.Value;
                     }
                 }
             }
