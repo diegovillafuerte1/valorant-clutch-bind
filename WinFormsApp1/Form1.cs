@@ -27,6 +27,15 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             thisButStatic = this;
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            notifyIcon1.Text = $"Current hotkey: {_key}\nClick icon to change hotkey...";
+            notifyIcon1.BalloonTipText = $"Current hotkey: {_key}\nClick icon to change hotkey...";
+            notifyIcon1.Visible = true;
+            _hookID = SetHook(_proc);
         }
 
 
@@ -88,11 +97,6 @@ namespace WinFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _hookID = SetHook(_proc);
-
-            notifyIcon1.Text = $"Current hotkey: {_key}\nClick icon to change hotkey...";
-            notifyIcon1.BalloonTipText = $"Current hotkey: {_key}\nClick icon to change hotkey...";
-
             // dump all audio sessions
             foreach (AudioSession session in AudioUtilities.GetAllSessions())
             {
