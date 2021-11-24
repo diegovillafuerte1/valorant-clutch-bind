@@ -71,6 +71,7 @@ namespace WinFormsApp1
                         }
                         AudioUtilities.SetApplicationMute(session.ProcessId, !muted.Value);
                         isMuted = !muted.Value;
+                        break; //TODO: This stops us from trying to mute multiple sessions with the same name.  We need to decide how to handle this case
                     }
                 }
             }
