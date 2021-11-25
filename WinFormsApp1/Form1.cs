@@ -34,8 +34,23 @@ namespace WinFormsApp1
         {
             notifyIcon1.Text = $"Current hotkey: {_key}\nClick icon to change hotkey...";
             notifyIcon1.BalloonTipText = $"Current hotkey: {_key}\nClick icon to change hotkey...";
+            notifyIcon1.ContextMenuStrip = new ContextMenuStrip();
+            notifyIcon1.ContextMenuStrip.Items.Add("Settings", null, OnSettingsClick);
+            notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, OnExitClick);
+
             notifyIcon1.Visible = true;
             _hookID = SetHook(_proc);
+        }
+
+        private void OnExitClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void OnSettingsClick(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.Show();
         }
 
 
@@ -111,10 +126,13 @@ namespace WinFormsApp1
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
-            listening = true;
-            notifyIcon1.Text = $"Waiting for input...";
-            notifyIcon1.BalloonTipText = $"Waiting for input...";
-            notifyIcon1.ShowBalloonTip(500);
+            if (e.Button == MouseButtons.Left)
+            {
+                listening = true;
+                notifyIcon1.Text = $"Waiting for input...";
+                notifyIcon1.BalloonTipText = $"Waiting for input...";
+                notifyIcon1.ShowBalloonTip(500);
+            }
         }
 
         private static IntPtr SetHook(LowLevelKeyboardProc proc)
@@ -131,7 +149,7 @@ namespace WinFormsApp1
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
             {
                 Keys key = (Keys)Marshal.ReadInt32(lParam);
-                HandleKeyPress(key);
+                HandleKeyPress(key); //THIS IS WHERE WE HOOK INTO THE HOTKEY NOTIFIER CODE
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -154,6 +172,15 @@ namespace WinFormsApp1
             {
                 notifyIcon1.Visible = false;
             }
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(this.WindowState != FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Minimized;
+                e.Cancel = true;
+            }
+
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)

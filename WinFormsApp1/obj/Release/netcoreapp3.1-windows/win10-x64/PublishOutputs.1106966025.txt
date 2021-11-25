@@ -1,0 +1,2 @@
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Release\netcoreapp3.1-windows\win10-x64\publish\WinFormsApp1.pdb
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Release\netcoreapp3.1-windows\win10-x64\publish\WinFormsApp1.exe
