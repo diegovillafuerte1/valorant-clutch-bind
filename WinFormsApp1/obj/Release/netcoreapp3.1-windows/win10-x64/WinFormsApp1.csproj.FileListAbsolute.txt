@@ -505,3 +505,7 @@ C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1
 C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\obj\Release\netcoreapp3.1-windows\win10-x64\WinFormsApp1.dll
 C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\obj\Release\netcoreapp3.1-windows\win10-x64\WinFormsApp1.pdb
 C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\obj\Release\netcoreapp3.1-windows\win10-x64\WinFormsApp1.genruntimeconfig.cache
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Release\netcoreapp3.1-windows\win10-x64\AudioAssets\back-brimstone-1.mp3
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Release\netcoreapp3.1-windows\win10-x64\AudioAssets\back-sage-1.mp3
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Release\netcoreapp3.1-windows\win10-x64\AudioAssets\quiet-brimstone-1.mp3
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Release\netcoreapp3.1-windows\win10-x64\AudioAssets\quiet-sage-1.mp3
