@@ -39,6 +39,9 @@ namespace WinFormsApp1
             notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, OnExitClick);
 
             notifyIcon1.Visible = true;
+
+            SettingsManager.InitializeAgentSelectionComboBox(comboBox1);
+
             _hookID = SetHook(_proc);
         }
 
@@ -157,6 +160,12 @@ namespace WinFormsApp1
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             UnhookWindowsHookEx(_hookID);
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = sender as ComboBox;
+            SettingsManager.SaveCurrentlySelectedAgent(cmb);
         }
 
         private void Form1_Resize(object sender, EventArgs e)

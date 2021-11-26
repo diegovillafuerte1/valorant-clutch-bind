@@ -38,3 +38,7 @@ C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1
 C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Debug\netcoreapp3.1-windows\AudioAssets\quiet-viper-1.mp3
 C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Debug\netcoreapp3.1-windows\AudioAssets\quiet-viper-2.mp3
 C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\obj\Debug\netcoreapp3.1-windows\WinFormsApp1.csprojAssemblyReference.cache
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Debug\netcoreapp3.1-windows\AudioAssets\back-brimstone-1.mp3
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Debug\netcoreapp3.1-windows\AudioAssets\back-sage-1.mp3
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Debug\netcoreapp3.1-windows\AudioAssets\quiet-brimstone-1.mp3
+C:\Users\Austin\source\repos\diegovillafuerte1\valorant-clutch-bind\WinFormsApp1\bin\Debug\netcoreapp3.1-windows\AudioAssets\quiet-sage-1.mp3

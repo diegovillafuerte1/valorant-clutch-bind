@@ -8,23 +8,33 @@ namespace WinFormsApp1
 {
     public static class AudioPlayer
     {
+        public static Dictionary<Agents, string> MuteMP3NameDictionary = new Dictionary<Agents, string> {
+            { Agents.Viper, "AudioAssets/quiet-viper-1.mp3" },
+            { Agents.Sage, "AudioAssets/quiet-sage-1.mp3" },
+            { Agents.Brimstone, "AudioAssets/quiet-brimstone-1.mp3" }
+        };
+        public static Dictionary<Agents, string> UnmuteMP3NameDictionary = new Dictionary<Agents, string>
+        {
+            { Agents.Viper, "AudioAssets/back-viper-1.mp3" },
+            { Agents.Sage, "AudioAssets/back-sage-1.mp3" },
+            { Agents.Brimstone, "AudioAssets/back-brimstone-1.mp3" }
+        };
+
         private static WaveOutEvent _waveOutEvent;
         private static Mp3FileReader _mp3Reader;
         private static bool _playbackStopped = true;
-        private static string muteMP3Path = "AudioAssets/quiet-viper-1.mp3";
-        private static string unmuteMP3Path = "AudioAssets/back-viper-1.mp3";
 
         static AudioPlayer()
         {
         }
         public async static Task PlayMuteSound()
         {
-            await PlaySound(muteMP3Path);
+            await PlaySound(MuteMP3NameDictionary[SettingsProvider.SelectedAgent]);
         }
 
         public async static Task PlayUnmuteSound()
         {
-            await PlaySound(unmuteMP3Path);
+            await PlaySound(UnmuteMP3NameDictionary[SettingsProvider.SelectedAgent]);
         }
 
         public async static Task PlaySound(string audioFilePath)
