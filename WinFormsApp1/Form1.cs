@@ -43,7 +43,39 @@ namespace WinFormsApp1
             SettingsManager.InitializeAgentSelectionComboBox(comboBox1);
 
             _hookID = SetHook(_proc);
+            InitializeMenu();
         }
+
+        private void InitializeMenu()
+        {
+            panelSettingsSubMenu.Visible = false;
+            panelSettingsAudioWindow.Visible = false;
+        }
+
+        private void HideAllSubMenus()
+        {
+            if (panelSettingsSubMenu.Visible)
+                panelSettingsSubMenu.Visible = false;
+        }
+
+        private void ShowSubMenu(Panel subMenu)
+        {
+            HideAllSubMenus();
+            subMenu.Visible = true;
+        }
+
+        private void ShowWindow(Panel window)
+        {
+            HideAllWindows();
+            window.Visible = true;
+        }
+
+        private void HideAllWindows()
+        {
+            if (panelSettingsAudioWindow.Visible)
+                panelSettingsAudioWindow.Visible = false;
+        }
+
 
         private void OnExitClick(object sender, EventArgs e)
         {
@@ -56,10 +88,19 @@ namespace WinFormsApp1
             this.Show();
         }
 
+        private void buttonAudio_Click(object sender, EventArgs e)
+        {
+            ShowWindow(panelSettingsAudioWindow);
+        }
+
+        private void buttonBinds_Click(object sender, EventArgs e)
+        {
+            //Show Window when made
+            HideAllWindows();
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         static private void HandleKeyPress(Keys key)
@@ -78,7 +119,7 @@ namespace WinFormsApp1
 
         static private void HandleClutchButton()
         {
-            var muteTarget = "RiotClientServices";
+            var muteTarget = "Discord";
             foreach (AudioSession session in AudioUtilities.GetAllSessions())
             {
                 if (!string.IsNullOrEmpty(session?.Process?.ProcessName) && session.Process.ProcessName.ToLowerInvariant() == muteTarget.ToLowerInvariant())
@@ -125,6 +166,11 @@ namespace WinFormsApp1
                     listBox1.Items.Add(session.Process.ProcessName);
                 }
             }
+        }
+
+        private void buttonDropDownSettings_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(panelSettingsSubMenu);
         }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)

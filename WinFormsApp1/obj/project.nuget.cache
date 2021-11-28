@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XTnidU7ut1p5SVTQ03Cuw/bIOXWIRL7EXzxyIt2wcjZTADsY71CnI/KeYqzLxK2cWZZs2uosYVuIxRY0U3E/gg==",
+  "dgSpecHash": "L+7AiBUgHAedjM1EazEBU2Nwco42VsYDk99Dx6OEdGr8M6lSWNUu7LfFnOnVjv3Fz0N1o1MMppyV2JGqqO/Uog==",
   "success": true,
   "projectFilePath": "C:\\Users\\Austin\\source\\repos\\diegovillafuerte1\\valorant-clutch-bind\\WinFormsApp1\\WinFormsApp1.csproj",
   "expectedPackageFiles": [
@@ -14,10 +14,7 @@
     "C:\\Users\\Austin\\.nuget\\packages\\naudio.winforms\\2.0.1\\naudio.winforms.2.0.1.nupkg.sha512",
     "C:\\Users\\Austin\\.nuget\\packages\\naudio.winmm\\2.0.1\\naudio.winmm.2.0.1.nupkg.sha512",
     "C:\\Users\\Austin\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\Austin\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
-    "C:\\Users\\Austin\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.21\\microsoft.netcore.app.runtime.win-x64.3.1.21.nupkg.sha512",
-    "C:\\Users\\Austin\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.21\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.21.nupkg.sha512",
-    "C:\\Users\\Austin\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.21\\microsoft.aspnetcore.app.runtime.win-x64.3.1.21.nupkg.sha512"
+    "C:\\Users\\Austin\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
