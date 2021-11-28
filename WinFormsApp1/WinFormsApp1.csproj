@@ -29,6 +29,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CustomControls\ButtonSubMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomControls\ButtonMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomControls\PanelSubMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="AudioAssets\back-brimstone-1.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

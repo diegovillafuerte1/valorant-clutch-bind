@@ -12,11 +12,12 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using WinFormsApp1.Utils;
+using WinFormsApp1.CustomControls;
 using NAudio;
 
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IThemedControl
     {
         #region shitThatMatters
         static Form1 thisButStatic;
@@ -41,15 +42,38 @@ namespace WinFormsApp1
             notifyIcon1.Visible = true;
 
             SettingsManager.InitializeAgentSelectionComboBox(comboBox1);
+            SettingsManager.InitializeThemeSelectionComboBox(comboBox2);
 
             _hookID = SetHook(_proc);
+            UpdateAllControlThemes(this);
             InitializeMenu();
+        }
+
+        private void UpdateAllControlThemes(Control? control)
+        {
+            if (control is IThemedControl themedControl)
+            {
+                themedControl.UpdateTheme(ThemeProvider.GetThemeSettings());
+            }
+            foreach (var childControl in control.Controls)
+            {
+                if (childControl is Control childActualControl) 
+                {
+                    UpdateAllControlThemes(childActualControl);
+                }
+            }
+        }
+
+        public void UpdateTheme(ApplicationThemeSettings themeSettings)
+        {
+            this.BackColor = themeSettings.PanelWindow_BackColor;
         }
 
         private void InitializeMenu()
         {
             panelSettingsSubMenu.Visible = false;
             panelSettingsAudioWindow.Visible = false;
+            panelSettingsThemeWindow.Visible = false;
         }
 
         private void HideAllSubMenus()
@@ -74,6 +98,8 @@ namespace WinFormsApp1
         {
             if (panelSettingsAudioWindow.Visible)
                 panelSettingsAudioWindow.Visible = false;
+            if (panelSettingsThemeWindow.Visible)
+                panelSettingsThemeWindow.Visible = false;
         }
 
 
@@ -97,6 +123,10 @@ namespace WinFormsApp1
         {
             //Show Window when made
             HideAllWindows();
+        }
+        private void buttonSubMenu_Theme_Click(object sender, EventArgs e)
+        {
+            ShowWindow(panelSettingsThemeWindow);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,6 +242,13 @@ namespace WinFormsApp1
         {
             ComboBox cmb = sender as ComboBox;
             SettingsManager.SaveCurrentlySelectedAgent(cmb);
+        }
+
+        private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = sender as ComboBox;
+            SettingsManager.SaveCurrentlySelectedTheme(cmb);
+            UpdateAllControlThemes(this);
         }
 
         private void Form1_Resize(object sender, EventArgs e)

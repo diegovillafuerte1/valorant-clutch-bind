@@ -10,6 +10,11 @@ namespace WinFormsApp1
         public string Name { get; set; }
         public Agents Agent { get; set; }
     }
+    public class ThemeSelectionComboBoxItem
+    {
+        public string Name { get; set; }
+        public Theme Theme { get; set; }
+    }
     public enum Agents
     {
         Viper,
@@ -25,11 +30,25 @@ namespace WinFormsApp1
             new AgentSelectionComboBoxItem() { Name = "Brimstone", Agent = Agents.Brimstone },
         };
 
+        private static readonly List<ThemeSelectionComboBoxItem> _themeComboBoxItems = new List<ThemeSelectionComboBoxItem>
+        {
+            new ThemeSelectionComboBoxItem() { Name = "Valorant", Theme = Theme.Valorant },
+            new ThemeSelectionComboBoxItem() { Name = "Green", Theme = Theme.Green }
+        };
+
         public static void InitializeAgentSelectionComboBox(ComboBox comboBox)
         {
             comboBox.DataSource = _agentComboBoxItems;
             comboBox.DisplayMember = "Name";
             comboBox.ValueMember = "Agent";
+            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        public static void InitializeThemeSelectionComboBox(ComboBox comboBox)
+        {
+            comboBox.DataSource = _themeComboBoxItems;
+            comboBox.DisplayMember = "Name";
+            comboBox.ValueMember = "Theme";
             comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -43,7 +62,15 @@ namespace WinFormsApp1
             SettingsProvider.SelectedAgent = item.Agent;
         }
 
-
+        public static void SaveCurrentlySelectedTheme(ComboBox comboBox)
+        {
+            var item = comboBox.SelectedItem as ThemeSelectionComboBoxItem;
+            if (item == null)
+            {
+                throw new InvalidOperationException("Selected item null or not a AgentSelectionComboBoxItem");
+            }
+            SettingsProvider.SelectedTheme = item.Theme;
+        }
 
         //Intends to contain code for handling the settings page, including filling ui elements like comboboxes with static setting data.
         //Persists and loads settings.

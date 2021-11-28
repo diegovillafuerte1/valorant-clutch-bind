@@ -1,4 +1,5 @@
-﻿
+﻿using WinFormsApp1.CustomControls;
+
 namespace WinFormsApp1
 {
     partial class Form1
@@ -36,16 +37,20 @@ namespace WinFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.panelSettingsSubMenu = new System.Windows.Forms.Panel();
-            this.buttonBinds = new System.Windows.Forms.Button();
-            this.buttonAudio = new System.Windows.Forms.Button();
-            this.buttonDropDownSettings = new System.Windows.Forms.Button();
+            this.panelSettingsSubMenu = new WinFormsApp1.CustomControls.PanelSubMenu();
+            this.buttonSubMenu_Theme = new WinFormsApp1.CustomControls.ButtonSubMenu();
+            this.buttonSubMenu_Binds = new WinFormsApp1.CustomControls.ButtonSubMenu();
+            this.buttonSubMenu_Audio = new WinFormsApp1.CustomControls.ButtonSubMenu();
+            this.buttonMenu_Settings = new WinFormsApp1.CustomControls.ButtonMenu();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelSettingsAudioWindow = new System.Windows.Forms.Panel();
+            this.panelSettingsAudioWindow = new WinFormsApp1.CustomControls.PanelWindow();
+            this.panelSettingsThemeWindow = new WinFormsApp1.CustomControls.PanelWindow();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelSettingsSubMenu.SuspendLayout();
             this.panelSettingsAudioWindow.SuspendLayout();
+            this.panelSettingsThemeWindow.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -91,76 +96,97 @@ namespace WinFormsApp1
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.Black;
             this.panelSideMenu.Controls.Add(this.panelSettingsSubMenu);
-            this.panelSideMenu.Controls.Add(this.buttonDropDownSettings);
+            this.panelSideMenu.Controls.Add(this.buttonMenu_Settings);
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 355);
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 335);
             this.panelSideMenu.TabIndex = 3;
             // 
             // panelSettingsSubMenu
             // 
-            this.panelSettingsSubMenu.Controls.Add(this.buttonBinds);
-            this.panelSettingsSubMenu.Controls.Add(this.buttonAudio);
+            this.panelSettingsSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelSettingsSubMenu.Controls.Add(this.buttonSubMenu_Theme);
+            this.panelSettingsSubMenu.Controls.Add(this.buttonSubMenu_Binds);
+            this.panelSettingsSubMenu.Controls.Add(this.buttonSubMenu_Audio);
             this.panelSettingsSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSettingsSubMenu.Location = new System.Drawing.Point(0, 145);
             this.panelSettingsSubMenu.Name = "panelSettingsSubMenu";
-            this.panelSettingsSubMenu.Size = new System.Drawing.Size(250, 81);
+            this.panelSettingsSubMenu.Size = new System.Drawing.Size(250, 122);
             this.panelSettingsSubMenu.TabIndex = 2;
             // 
-            // buttonBinds
+            // buttonSubMenu_Theme
             // 
-            this.buttonBinds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.buttonBinds.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonBinds.FlatAppearance.BorderSize = 0;
-            this.buttonBinds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBinds.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonBinds.ForeColor = System.Drawing.Color.Silver;
-            this.buttonBinds.Location = new System.Drawing.Point(0, 40);
-            this.buttonBinds.Name = "buttonBinds";
-            this.buttonBinds.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonBinds.Size = new System.Drawing.Size(250, 40);
-            this.buttonBinds.TabIndex = 1;
-            this.buttonBinds.Text = "Binds";
-            this.buttonBinds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBinds.UseVisualStyleBackColor = false;
-            this.buttonBinds.Click += new System.EventHandler(this.buttonBinds_Click);
+            this.buttonSubMenu_Theme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.buttonSubMenu_Theme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSubMenu_Theme.FlatAppearance.BorderSize = 0;
+            this.buttonSubMenu_Theme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubMenu_Theme.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSubMenu_Theme.ForeColor = System.Drawing.Color.Silver;
+            this.buttonSubMenu_Theme.Location = new System.Drawing.Point(0, 80);
+            this.buttonSubMenu_Theme.Name = "buttonSubMenu_Theme";
+            this.buttonSubMenu_Theme.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonSubMenu_Theme.Size = new System.Drawing.Size(250, 40);
+            this.buttonSubMenu_Theme.TabIndex = 2;
+            this.buttonSubMenu_Theme.Text = "Theme";
+            this.buttonSubMenu_Theme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSubMenu_Theme.UseVisualStyleBackColor = false;
+            this.buttonSubMenu_Theme.Click += new System.EventHandler(this.buttonSubMenu_Theme_Click);
             // 
-            // buttonAudio
+            // buttonSubMenu_Binds
             // 
-            this.buttonAudio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.buttonAudio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAudio.FlatAppearance.BorderSize = 0;
-            this.buttonAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAudio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonAudio.ForeColor = System.Drawing.Color.Silver;
-            this.buttonAudio.Location = new System.Drawing.Point(0, 0);
-            this.buttonAudio.Name = "buttonAudio";
-            this.buttonAudio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonAudio.Size = new System.Drawing.Size(250, 40);
-            this.buttonAudio.TabIndex = 0;
-            this.buttonAudio.Text = "Audio";
-            this.buttonAudio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAudio.UseVisualStyleBackColor = false;
-            this.buttonAudio.Click += new System.EventHandler(this.buttonAudio_Click);
+            this.buttonSubMenu_Binds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.buttonSubMenu_Binds.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSubMenu_Binds.FlatAppearance.BorderSize = 0;
+            this.buttonSubMenu_Binds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubMenu_Binds.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSubMenu_Binds.ForeColor = System.Drawing.Color.Silver;
+            this.buttonSubMenu_Binds.Location = new System.Drawing.Point(0, 40);
+            this.buttonSubMenu_Binds.Name = "buttonSubMenu_Binds";
+            this.buttonSubMenu_Binds.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonSubMenu_Binds.Size = new System.Drawing.Size(250, 40);
+            this.buttonSubMenu_Binds.TabIndex = 1;
+            this.buttonSubMenu_Binds.Text = "Binds";
+            this.buttonSubMenu_Binds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSubMenu_Binds.UseVisualStyleBackColor = false;
+            this.buttonSubMenu_Binds.Click += new System.EventHandler(this.buttonBinds_Click);
             // 
-            // buttonDropDownSettings
+            // buttonSubMenu_Audio
             // 
-            this.buttonDropDownSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonDropDownSettings.FlatAppearance.BorderSize = 0;
-            this.buttonDropDownSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDropDownSettings.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonDropDownSettings.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonDropDownSettings.Location = new System.Drawing.Point(0, 100);
-            this.buttonDropDownSettings.Name = "buttonDropDownSettings";
-            this.buttonDropDownSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonDropDownSettings.Size = new System.Drawing.Size(250, 45);
-            this.buttonDropDownSettings.TabIndex = 1;
-            this.buttonDropDownSettings.Text = "Settings";
-            this.buttonDropDownSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDropDownSettings.UseVisualStyleBackColor = true;
-            this.buttonDropDownSettings.Click += new System.EventHandler(this.buttonDropDownSettings_Click);
+            this.buttonSubMenu_Audio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.buttonSubMenu_Audio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSubMenu_Audio.FlatAppearance.BorderSize = 0;
+            this.buttonSubMenu_Audio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubMenu_Audio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSubMenu_Audio.ForeColor = System.Drawing.Color.Silver;
+            this.buttonSubMenu_Audio.Location = new System.Drawing.Point(0, 0);
+            this.buttonSubMenu_Audio.Name = "buttonSubMenu_Audio";
+            this.buttonSubMenu_Audio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonSubMenu_Audio.Size = new System.Drawing.Size(250, 40);
+            this.buttonSubMenu_Audio.TabIndex = 0;
+            this.buttonSubMenu_Audio.Text = "Audio";
+            this.buttonSubMenu_Audio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSubMenu_Audio.UseVisualStyleBackColor = false;
+            this.buttonSubMenu_Audio.Click += new System.EventHandler(this.buttonAudio_Click);
+            // 
+            // buttonMenu_Settings
+            // 
+            this.buttonMenu_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonMenu_Settings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonMenu_Settings.FlatAppearance.BorderSize = 0;
+            this.buttonMenu_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenu_Settings.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonMenu_Settings.ForeColor = System.Drawing.Color.DarkRed;
+            this.buttonMenu_Settings.Location = new System.Drawing.Point(0, 100);
+            this.buttonMenu_Settings.Name = "buttonMenu_Settings";
+            this.buttonMenu_Settings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonMenu_Settings.Size = new System.Drawing.Size(250, 45);
+            this.buttonMenu_Settings.TabIndex = 1;
+            this.buttonMenu_Settings.Text = "Settings";
+            this.buttonMenu_Settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMenu_Settings.UseVisualStyleBackColor = true;
+            this.buttonMenu_Settings.Click += new System.EventHandler(this.buttonDropDownSettings_Click);
             // 
             // panelLogo
             // 
@@ -180,8 +206,27 @@ namespace WinFormsApp1
             this.panelSettingsAudioWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSettingsAudioWindow.Location = new System.Drawing.Point(0, 0);
             this.panelSettingsAudioWindow.Name = "panelSettingsAudioWindow";
-            this.panelSettingsAudioWindow.Size = new System.Drawing.Size(792, 355);
+            this.panelSettingsAudioWindow.Size = new System.Drawing.Size(796, 335);
             this.panelSettingsAudioWindow.TabIndex = 4;
+            // 
+            // panelSettingsThemeWindow
+            // 
+            this.panelSettingsThemeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panelSettingsThemeWindow.Controls.Add(this.comboBox2);
+            this.panelSettingsThemeWindow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSettingsThemeWindow.Location = new System.Drawing.Point(0, 0);
+            this.panelSettingsThemeWindow.Name = "panelSettingsThemeWindow";
+            this.panelSettingsThemeWindow.Size = new System.Drawing.Size(796, 335);
+            this.panelSettingsThemeWindow.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(279, 28);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2.TabIndex = 0;
+            this.comboBox2.SelectedValueChanged += new System.EventHandler(this.comboBox2_SelectedValueChanged);
             // 
             // label2
             // 
@@ -199,9 +244,10 @@ namespace WinFormsApp1
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(792, 355);
+            this.ClientSize = new System.Drawing.Size(796, 335);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.panelSettingsAudioWindow);
+            this.Controls.Add(this.panelSettingsThemeWindow);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -214,6 +260,8 @@ namespace WinFormsApp1
             this.panelSettingsSubMenu.ResumeLayout(false);
             this.panelSettingsAudioWindow.ResumeLayout(false);
             this.panelSettingsAudioWindow.PerformLayout();
+            this.panelSettingsThemeWindow.ResumeLayout(false);
+            this.panelSettingsThemeWindow.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -225,13 +273,16 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Panel panelSettingsSubMenu;
-        private System.Windows.Forms.Button buttonBinds;
-        private System.Windows.Forms.Button buttonAudio;
-        private System.Windows.Forms.Button buttonDropDownSettings;
+        private PanelSubMenu panelSettingsSubMenu;
+        private ButtonSubMenu buttonSubMenu_Binds;
+        private ButtonSubMenu buttonSubMenu_Audio;
+        private ButtonMenu buttonMenu_Settings;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Panel panelSettingsAudioWindow;
+        private PanelWindow panelSettingsAudioWindow;
         private System.Windows.Forms.Label label2;
+        private ButtonSubMenu buttonSubMenu_Theme;
+        private PanelWindow panelSettingsThemeWindow;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 
