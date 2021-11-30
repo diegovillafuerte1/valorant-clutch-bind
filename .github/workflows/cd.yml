@@ -67,11 +67,11 @@ jobs:
       App_Packages_Archive: AppPackages.zip
       App_Packages_Directory: AppPackages
       SigningCertificate: GitHubActionsDemo.pfx
-      Solution_Path: MyWpfApp.sln
-      Test_Project_Path: MyWpfApp.Tests\MyWpfApp.Tests.csproj
-      Wpf_Project_Path: MyWpfApp\MyWpfApp.csproj
-      Wap_Project_Directory: MyWpfApp.Package
-      Wap_Project_Name: MyWpfApp.Package.wapproj
+      Solution_Path: WinFormsApp1.sln
+      Test_Project_Path: WinFormsApp1.Tests\WinFormsApp1.Tests.csproj
+      Wpf_Project_Path: WinFormsApp1\WinFormsApp1.csproj
+      Wap_Project_Directory: WinFormsApp1.Package
+      Wap_Project_Name: WinFormsApp1.Package.wapproj
       Actions_Allow_Unsecure_Commands: true # Allows AddPAth and SetEnv commands
 
     steps:
